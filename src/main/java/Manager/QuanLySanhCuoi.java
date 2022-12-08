@@ -9,13 +9,15 @@ public class QuanLySanhCuoi {
   private List<SanhCuoi> dsSanhCuoi = new ArrayList<>();
 
   public void themSC(SanhCuoi sc) {
+
     this.dsSanhCuoi.add(sc);
   }
   public void themSC(SanhCuoi... sc) {
+
     this.dsSanhCuoi.addAll(Arrays.asList(sc));
   }
   public void hienThi() {
-    this.dsSanhCuoi.forEach(s -> s.hienThi());
+    this.dsSanhCuoi.forEach(sc -> sc.hienThi());
   }
   public List<SanhCuoi> getDsSanhCuoi() {
     return dsSanhCuoi;

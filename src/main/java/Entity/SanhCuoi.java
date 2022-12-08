@@ -11,16 +11,13 @@ public class SanhCuoi {
   private double donGia;
   private int tanSuat = 0;
 
-  public SanhCuoi(String maSC, String tenSC, String viTriSC) {
-    this.maSC = maSC;
+  public SanhCuoi(String tenSC, String viTriSC, int sucChua) {
     this.tenSC = tenSC;
     this.viTriSC = viTriSC;
-  }
-  public void nhapSC() {
-    System.out.print("Nhap ma sanh cuoi: ");
+    this.sucChua = sucChua;
   }
   public void hienThi() {
-    System.out.printf("Ma sanh cuoi: %s\nTen sanh cuoi: %s\nVi tri sanh cuoi: %s\n", this.maSC, this.tenSC, this.viTriSC);
+    System.out.printf("Ma sanh cuoi: S00%s\nTen sanh cuoi: %s\nVi tri sanh cuoi: %s\nSuc chua: %d\n", count++, this.tenSC, this.viTriSC, this.sucChua);
   }
   public String getMaSC() {
     return maSC;
