@@ -4,6 +4,7 @@ import Entity.SanhCuoi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class QuanLySanhCuoi {
@@ -14,8 +15,23 @@ public class QuanLySanhCuoi {
 
     this.dsSanhCuoi.add(sc);
   }
-  public boolean xoaSC(SanhCuoi sc) {
-   return this.dsSanhCuoi.remove(sc);
+  public void xoaSC(Scanner saC) {
+    System.out.print("Nhap ma sanh cuoi: ");
+    saC.nextLine();
+    String m = saC.nextLine();
+    SanhCuoi s = null;
+    for (SanhCuoi sa : dsSanhCuoi) {
+      if(sa.getMaSC().equalsIgnoreCase(m)) {
+        s = sa;
+        break;
+      }
+    }
+    if(s != null) {
+      dsSanhCuoi.remove(s);
+      System.out.println("Da duoc xoa\n");
+    }else {
+      System.out.println("Chua duoc xoa\n");
+    }
   }
   public void inDanhSachBuoiTiec() {
     for (SanhCuoi sc : dsSanhCuoi) {

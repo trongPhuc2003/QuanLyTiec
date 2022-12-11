@@ -2,7 +2,9 @@ package Views;
 
 import Entity.SanhCuoi;
 import Manager.QuanLySanhCuoi;
+import java.sql.ClientInfoStatus;
 import java.util.Scanner;
+import javax.swing.JList;
 
 public class Main {
 
@@ -13,9 +15,9 @@ public class Main {
     do
     {
       System.out.println("1: Thêm thông tin sảnh cưới");
-      System.out.println("2:  ");
-      System.out.println("3: ");
-      System.out.println("4: ");
+      System.out.println("2: Xoá sảnh cưới theo mã");
+      System.out.println("3: Tìm sảnh cưới theo vị trí");
+      System.out.println("4: In danh sách sảnh cưới");
       luaChon = scanner.nextInt();
       switch (luaChon)
       {
@@ -33,11 +35,8 @@ public class Main {
           ql.themSC(sanhCuoi);
           break;
         case 2:
-          System.out.printf("Nhap ma sanh cuoi: ");
-          scanner.nextLine();
-          String m = scanner.nextLine();
-          SanhCuoi sc = new SanhCuoi(m);
-          System.out.println("Xoa sanh cuoi " + ql.xoaSC(sc));
+          ql.xoaSC(scanner);
+
           break;
         case 3:
           System.out.print("Nhap vi tri: ");
