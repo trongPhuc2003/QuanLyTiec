@@ -15,10 +15,10 @@ public class QuanLySanhCuoi {
 
     this.dsSanhCuoi.add(sc);
   }
-  public void xoaSC(Scanner saC) {
-    System.out.print("Nhap ma sanh cuoi: ");
-    saC.nextLine();
-    String m = saC.nextLine();
+  public void xoaSC(Scanner sc) {
+    System.out.print("Nhập mã sảnh cưới: ");
+    sc.nextLine();
+    String m = sc.nextLine();
     SanhCuoi s = null;
     for (SanhCuoi sa : dsSanhCuoi) {
       if(sa.getMaSC().equalsIgnoreCase(m)) {
@@ -28,9 +28,9 @@ public class QuanLySanhCuoi {
     }
     if(s != null) {
       dsSanhCuoi.remove(s);
-      System.out.println("Da duoc xoa\n");
+      System.out.println("Đã được xoá\n");
     }else {
-      System.out.println("Chua duoc xoa\n");
+      System.out.println("Chưa được xoá\n");
     }
   }
   public void inDanhSachBuoiTiec() {

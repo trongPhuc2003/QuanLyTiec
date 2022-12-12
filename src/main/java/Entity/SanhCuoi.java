@@ -14,21 +14,19 @@ public class SanhCuoi {
   public SanhCuoi(String maSC) {
     this.maSC = maSC;
   }
-  public SanhCuoi(String maSC, String tenSC, String viTriSC, int sucChua) {
+  public SanhCuoi(String maSC, String tenSC, String viTriSC, int sucChua, double donGia) {
     this.maSC = maSC;
     this.tenSC = tenSC;
     this.viTriSC = viTriSC;
     this.sucChua = sucChua;
+    this.donGia = donGia;
     count++;
   }
 
-  public void hienThi() {
-    System.out.printf("Ma sanh cuoi: %s\nTen sanh cuoi: %s\nVi tri sanh cuoi: %s\nSuc chua: %d\n", this.maSC, this.tenSC, this.viTriSC, this.sucChua);
-  }
   @Override
   public String toString() {
-    return "\nMa sanh cuoi: " + maSC + "\nTen sanh cuoi: " + tenSC + "\nVi tri sanh cuoi: " + viTriSC
-        + "\nSuc chua: " + sucChua;
+    return "\nMã sảnh cưới: " + maSC.toUpperCase() + "\nTên sảnh cưới: " + tenSC + "\nVị trí sảnh cưới: " + viTriSC
+        + "\nSức chứa: " + sucChua + "\nGiá thuê: " + donGia;
   }
   public String getMaSC() {
     return maSC;
