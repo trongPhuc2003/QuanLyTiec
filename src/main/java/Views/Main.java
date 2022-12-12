@@ -15,12 +15,13 @@ public class Main {
     do
     {
       System.out.println("1: Thông tin sảnh cưới");
-      System.out.println("2: Thông tin thức ăn, nước uống");
-      System.out.println("3: Cho thuê sảnh");
-      System.out.println("4: Sắp xếp danh sách sảnh cưới giảm dần theo tần suất");
-      System.out.println("5: Xuất hoá đơn");
-      System.out.println("6: Doanh thu theo tháng và quý");
-      System.out.println("7: Kết thúc");
+      System.out.println("2: Thông tin dịch vụ");
+      System.out.println("3: Thông tin thức ăn, nước uống");
+      System.out.println("4: Cho thuê sảnh");
+      System.out.println("5: Sắp xếp danh sách sảnh cưới giảm dần theo tần suất");
+      System.out.println("6: Xuất hoá đơn");
+      System.out.println("7: Doanh thu theo tháng và quý");
+      System.out.println("8: Kết thúc");
       luaChon = scanner.nextInt();
       switch (luaChon) {
         case 1:
@@ -71,8 +72,25 @@ public class Main {
           System.out.println("3: Xoá dịch vụ");
           System.out.println("4: Tra cứu dịch vụ theo tên dịch vụ");
           break;
+        case 3:
+          System.out.println("1: Thêm thực phẩm");
+          System.out.println("2: Cập nhật thực phẩm");
+          System.out.println("3: Xoá thưc phẩm");
+          System.out.println("4: Tra cứu thức ăn");
+          System.out.println("4: Tra cứu thức uống");
+          break;
+        case 4:
+          break;
+        case 5:
+          break;
+        case 6:
+          break;
+        case 7:
+          break;
+        case 8:
+          System.out.println("Kết thúc chương trình!\n");
       }
-    }while (luaChon != 2);
+    }while (luaChon != 8);
   }
 
 }
