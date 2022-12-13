@@ -11,9 +11,12 @@ public class QuanLySanhCuoi {
 
   private List<SanhCuoi> dsSanhCuoi = new ArrayList<>();
 
-  public void themSC(SanhCuoi sc) {
+  public void themSC(SanhCuoi... sc) {
 
-    this.dsSanhCuoi.add(sc);
+    this.dsSanhCuoi.addAll(Arrays.asList(sc));
+  }
+  public void xoa(SanhCuoi sc) {
+    this.dsSanhCuoi.remove(sc);
   }
   public void xoaSC(Scanner sc) {
     System.out.print("Nhập mã sảnh cưới: ");
@@ -33,14 +36,27 @@ public class QuanLySanhCuoi {
       System.out.println("Chưa được xoá\n");
     }
   }
+  public void sapXep() {
+    this.dsSanhCuoi.sort((sc1, sc2) -> {
+      int ts1 = sc1.getTanSuat();
+      int ts2 = sc2.getTanSuat();
+
+      return (ts1 > ts2 ? 1 : (ts1 < ts2 ? -1 : 0));
+    });
+  }
+
   public void inDanhSachBuoiTiec() {
     for (SanhCuoi sc : dsSanhCuoi) {
       System.out.println(sc);
     }
   }
-  public SanhCuoi traCuu(int sucChua) {
+  public List<SanhCuoi> traCuuTen(String ten) {
+    return this.dsSanhCuoi.stream().filter(sc -> sc.getTenSC().contains(ten)).collect(Collectors.toList());
+  }
+  public SanhCuoi traCuuChua(int sucChua) {
     return this.dsSanhCuoi.stream().filter(sc -> sc.getSucChua() == sucChua).findFirst().get();
   }
+
   public List<SanhCuoi> traCuu(String viTriSC) {
     return this.dsSanhCuoi.stream().filter(sc -> sc.getViTriSC().contains(viTriSC)).collect(Collectors.toList());
   }

@@ -31,14 +31,11 @@ public class Main {
           System.out.println("4: Tra cứu sảnh cưới theo tên sảnh");
           System.out.println("5: Tra cứu sảnh cưới theo sức chứa");
           System.out.println("6: Tra cứu sảnh cưới theo vị trí sảnh");
-          System.out.println("7: In danh sách sảnh cưới");
-          int chon = scanner.nextInt();
-          switch (chon) {
+          int chon1 = scanner.nextInt();
+          switch (chon1) {
             case 1:
-              System.out.printf("Nhap mã sảnh: ");
-              scanner.nextLine();
-              String maSC = scanner.nextLine();
               System.out.print("Nhập tên sảnh: ");
+              scanner.nextLine();
               String tenSC = scanner.nextLine();
               System.out.print("Nhập vị trí sảnh:");
               String viTriSC = scanner.nextLine();
@@ -46,12 +43,24 @@ public class Main {
               int sucChua = scanner.nextInt();
               System.out.print("Nhap gia thue: ");
               double donGia = scanner.nextDouble();
-              SanhCuoi sanhCuoi = new SanhCuoi(maSC, tenSC, viTriSC, sucChua, donGia);
+              SanhCuoi sanhCuoi = new SanhCuoi(tenSC, viTriSC, sucChua, donGia);
               ql.themSC(sanhCuoi);
               break;
             case 3:
               ql.xoaSC(scanner);
               break;
+            case 4:
+              System.out.print("Nhập tên sảnh: ");
+              scanner.nextLine();
+              String ten = scanner.nextLine();
+              ql.traCuuTen(ten).forEach(s -> {
+                System.out.println(s.toString());
+              });
+            case 5:
+              System.out.print("Nhap sức chứa: ");
+              scanner.nextLine();
+              int sucCh = scanner.nextInt();
+              ql.traCuuChua(sucCh);
             case 6:
               System.out.print("Nhap vi tri: ");
               scanner.nextLine();
@@ -61,7 +70,6 @@ public class Main {
               });
               break;
             case 7: {
-              ql.inDanhSachBuoiTiec();
               break;
             }
           }
@@ -80,8 +88,10 @@ public class Main {
           System.out.println("4: Tra cứu thức uống");
           break;
         case 4:
+          ql.inDanhSachBuoiTiec();
           break;
         case 5:
+          ql.sapXep();
           break;
         case 6:
           break;

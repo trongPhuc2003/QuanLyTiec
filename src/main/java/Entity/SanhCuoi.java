@@ -10,22 +10,23 @@ public class SanhCuoi {
   private int sucChua;
   private double donGia;
   private int tanSuat = 0;
-
+  {
+    maSC = String.format("S%03d",(++count));
+  }
   public SanhCuoi(String maSC) {
     this.maSC = maSC;
   }
-  public SanhCuoi(String maSC, String tenSC, String viTriSC, int sucChua, double donGia) {
-    this.maSC = maSC;
+  public SanhCuoi(String tenSC, String viTriSC, int sucChua, double donGia) {
     this.tenSC = tenSC;
     this.viTriSC = viTriSC;
     this.sucChua = sucChua;
     this.donGia = donGia;
-    count++;
   }
+
 
   @Override
   public String toString() {
-    return "\nMã sảnh cưới: " + maSC.toUpperCase() + "\nTên sảnh cưới: " + tenSC + "\nVị trí sảnh cưới: " + viTriSC
+    return "\nMã sảnh cưới: " + maSC + "\nTên sảnh cưới: " + tenSC + "\nVị trí sảnh cưới: " + viTriSC
         + "\nSức chứa: " + sucChua + "\nGiá thuê: " + donGia;
   }
   public String getMaSC() {
@@ -66,5 +67,13 @@ public class SanhCuoi {
 
   public void setDonGia(double donGia) {
     this.donGia = donGia;
+  }
+
+  public int getTanSuat() {
+    return tanSuat;
+  }
+
+  public void setTanSuat(int tanSuat) {
+    this.tanSuat = tanSuat;
   }
 }

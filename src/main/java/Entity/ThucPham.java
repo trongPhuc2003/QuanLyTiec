@@ -1,11 +1,19 @@
 package Entity;
 
-public class ThucPham {
+public abstract class  ThucPham {
   private static int count = 0;
-  private int maTp;
-  private String tenTp;
-  private double giaTp;
-
+  protected int maTp;
+  protected String tenTp;
+  protected double giaTp;
+  {
+    ++count;
+    maTp = count;
+  }
+  public ThucPham(String tenTp, double giaTp) {
+    this.tenTp = tenTp;
+    this.giaTp = giaTp;
+  }
+  public abstract void show();
   public int getMaTp() {
     return maTp;
   }

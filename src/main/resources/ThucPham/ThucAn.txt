@@ -1,0 +1,12 @@
+Hu tieu
+5000
+1
+Banh canh
+30000
+0
+Ca nuong
+50000
+1
+Bun dau
+25000
+0
