@@ -1,8 +1,11 @@
 package Entity;
 
 public class TrangTriPhoiCanh extends DichVu{
+  private static int count = 0;
   private String yeuCau;
   {
+    ++count;
+    maDV = String.format("SY%04d",count);
     tenDV = "Yeu cau trang tri boi canh";
   }
   public TrangTriPhoiCanh(String yeuCau, double giaDv) {

@@ -44,11 +44,8 @@ public class QuanLySanhCuoi {
       return (ts1 > ts2 ? 1 : (ts1 < ts2 ? -1 : 0));
     });
   }
-
-  public void inDanhSachBuoiTiec() {
-    for (SanhCuoi sc : dsSanhCuoi) {
-      System.out.println(sc);
-    }
+  public void show(){
+    this.dsSanhCuoi.forEach(s->s.show());
   }
   public List<SanhCuoi> traCuuTen(String ten) {
     return this.dsSanhCuoi.stream().filter(sc -> sc.getTenSC().contains(ten)).collect(Collectors.toList());

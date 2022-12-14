@@ -1,16 +1,22 @@
 package Views;
 
+import Entity.BuoiTiec;
 import Entity.SanhCuoi;
+import Manager.QuanLyBuoiTiec;
 import Manager.QuanLySanhCuoi;
+import java.io.FileNotFoundException;
 import java.sql.ClientInfoStatus;
+import java.text.ParseException;
 import java.util.Scanner;
 import javax.swing.JList;
 
 public class Main {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException, ParseException {
     Scanner scanner = new Scanner(System.in);
     QuanLySanhCuoi ql = new QuanLySanhCuoi();
+    QuanLyBuoiTiec qlbt = new QuanLyBuoiTiec();
+    BuoiTiec b = new BuoiTiec();
     int luaChon = 0;
     do
     {
@@ -41,9 +47,7 @@ public class Main {
               String viTriSC = scanner.nextLine();
               System.out.print("Nhập sức chứa: ");
               int sucChua = scanner.nextInt();
-              System.out.print("Nhap gia thue: ");
-              double donGia = scanner.nextDouble();
-              SanhCuoi sanhCuoi = new SanhCuoi(tenSC, viTriSC, sucChua, donGia);
+              SanhCuoi sanhCuoi = new SanhCuoi(tenSC, viTriSC, sucChua);
               ql.themSC(sanhCuoi);
               break;
             case 3:
@@ -57,12 +61,12 @@ public class Main {
                 System.out.println(s.toString());
               });
             case 5:
-              System.out.print("Nhap sức chứa: ");
+              System.out.print("Nhập sức chứa: ");
               scanner.nextLine();
               int sucCh = scanner.nextInt();
               ql.traCuuChua(sucCh);
             case 6:
-              System.out.print("Nhap vi tri: ");
+              System.out.print("Nhập vi tri: ");
               scanner.nextLine();
               String viTri = scanner.nextLine();
               ql.traCuu(viTri).forEach(s -> {
@@ -88,14 +92,26 @@ public class Main {
           System.out.println("4: Tra cứu thức uống");
           break;
         case 4:
-          ql.inDanhSachBuoiTiec();
+          ql.show();
+          b.nhapBuoiTiec();
+          qlbt.themBuoiTiec(b);
+          qlbt.showTatCa();
           break;
         case 5:
           ql.sapXep();
           break;
         case 6:
+          b.xuatHoaDon();
           break;
         case 7:
+          System.out.print("Nhập tháng: ");
+          int thang = scanner.nextInt();
+          qlbt.doanhThuThang(thang);
+          System.out.println("Nhập quý: ");
+          int quy = scanner.nextInt();
+          System.out.println("Nhập năm: ");
+          int nam = scanner.nextInt();
+          qlbt.doanhThuQuy(quy, nam);
           break;
         case 8:
           System.out.println("Kết thúc chương trình!\n");

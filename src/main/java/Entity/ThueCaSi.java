@@ -3,7 +3,10 @@ package Entity;
 public class ThueCaSi extends DichVu {
   private String thongTin;
   private int soLuongBaiHat;
+  private static int count = 0;
   {
+    ++count;
+    maDV = String.format("SC%04d",count);
     tenDV = "Thuê ca sĩ";
   }
   public ThueCaSi(String thongTin, int soLuongBaiHat, double giaDv) {

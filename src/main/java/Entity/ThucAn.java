@@ -4,7 +4,7 @@ public class ThucAn extends ThucPham{
   private boolean anChay;
   public ThucAn(String tenTp, double giaTp, boolean anChay) {
     super(tenTp, giaTp);
-    this.anChay = isAnChay();
+    this.anChay = anChay;
   }
 
   public ThucAn() {
@@ -15,8 +15,8 @@ public class ThucAn extends ThucPham{
 
   @Override
   public void show() {
-    System.out.printf("%s > ",this.maTp);
-    System.out.print(this.tenTp+", ");
+    System.out.printf("%s-- ",this.maTp);
+    System.out.print(this.tenTp + ", ");
     if(this.anChay == true)
       System.out.print("Chay");
     else

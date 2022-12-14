@@ -4,7 +4,9 @@ public class Karaoke extends DichVu{
   private double tgThue;
   private static int count = 0;
   {
-    tenDV = "Thuê Karaoke.txt";
+    ++count;
+    maDV = String.format("SY%04d",count);
+    tenDV = "Thuê Karaoke";
   }
 
   public Karaoke(double tgThue,double giaDv) {

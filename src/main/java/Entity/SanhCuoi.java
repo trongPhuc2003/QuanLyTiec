@@ -1,5 +1,8 @@
 package Entity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class SanhCuoi {
@@ -10,24 +13,43 @@ public class SanhCuoi {
   private int sucChua;
   private double donGia;
   private int tanSuat = 0;
+  private ThoiDiem thoiDiem;
+  private String ngay;
   {
     maSC = String.format("S%03d",(++count));
   }
   public SanhCuoi(String maSC) {
+
     this.maSC = maSC;
   }
-  public SanhCuoi(String tenSC, String viTriSC, int sucChua, double donGia) {
+  public SanhCuoi(String maSC,String tenSC, String viTriSC, int sucChua, String ngayThue, ThoiDiem thoiDiem) throws ParseException {
     this.tenSC = tenSC;
     this.viTriSC = viTriSC;
     this.sucChua = sucChua;
-    this.donGia = donGia;
+    this.maSC = maSC;
+    this.ngay = ngayThue;
+    this.thoiDiem = thoiDiem;
+  }
+  public SanhCuoi(String tenSC, String viTriSC, int sucChua) {
+    this.tenSC = tenSC;
+    this.viTriSC = viTriSC;
+    this.sucChua = sucChua;
+
   }
 
+  public int tienThue() throws ParseException {
+    Date date = new SimpleDateFormat("dd/MM/yyyy").parse(this.ngay);
+    int thu = date.getDay();
+    return this.thoiDiem.tien(thu);
+  }
 
-  @Override
-  public String toString() {
-    return "\nMã sảnh cưới: " + maSC + "\nTên sảnh cưới: " + tenSC + "\nVị trí sảnh cưới: " + viTriSC
-        + "\nSức chứa: " + sucChua + "\nGiá thuê: " + donGia;
+  public void show() {
+    System.out.printf("Mã sảnh: %s\nTên sảnh: %s\nVị trí: %s\nSức chứa: %d\n",
+        this.maSC, this.tenSC, this.viTriSC, this.sucChua);
+
+  }
+  public void showThue(){
+    System.out.println("Ngày: "+ ngay);
   }
   public String getMaSC() {
     return maSC;
@@ -75,5 +97,21 @@ public class SanhCuoi {
 
   public void setTanSuat(int tanSuat) {
     this.tanSuat = tanSuat;
+  }
+
+  public ThoiDiem getThoiDiem() {
+    return thoiDiem;
+  }
+
+  public void setThoiDiem(ThoiDiem thoiDiem) {
+    this.thoiDiem = thoiDiem;
+  }
+
+  public String getNgay() {
+    return ngay;
+  }
+
+  public void setNgay(String ngay) {
+    ngay = ngay;
   }
 }

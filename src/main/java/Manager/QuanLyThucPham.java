@@ -56,7 +56,7 @@ public class QuanLyThucPham {
     }
   }
 
-  public void show(){
+  public void showDstp(){
     System.out.println("----Danh sách các món ăn của nhà hàng-----");
     this.dsTp.forEach(s->s.show());
   }

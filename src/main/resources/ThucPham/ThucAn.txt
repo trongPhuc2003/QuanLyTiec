@@ -1,4 +1,4 @@
-Hu tieu
+Hu tieu go
 5000
 1
 Banh canh
@@ -6,7 +6,7 @@ Banh canh
 0
 Ca nuong
 50000
-1
+0
 Bun dau
 25000
-0
+1

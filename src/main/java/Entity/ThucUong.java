@@ -9,7 +9,7 @@ public class ThucUong extends ThucPham{
 
   @Override
   public void show() {
-    System.out.printf("%d > %s, %.0f, %s\n", this.giaTp, this.tenTp, this.giaTp, this.hangSX);
+    System.out.printf("%d --- %s, %.0f, %s\n", maTp, this.tenTp, this.giaTp, this.hangSX);
 
   }
   public String getHangSX() {

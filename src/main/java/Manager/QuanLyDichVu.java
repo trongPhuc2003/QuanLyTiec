@@ -51,13 +51,14 @@ public class QuanLyDichVu {
   }
 
   public int docFileKaraoke() throws FileNotFoundException {
-      File f = new File("D:\\Code\\QuanLyTiec\\src\\main\\resources\\DichVu\\Karaoke.txt.txt");
-      try ( Scanner sc = new Scanner(f)) {
+      File f = new File("D:\\Code\\QuanLyTiec\\src\\main\\resources\\DichVu\\Karaoke.txt");
+      try (Scanner sc = new Scanner(f)) {
         while (sc.hasNext()) {
           int dv = Integer.parseInt(sc.nextLine());
           return dv;
         }
       }
+
     return 0;
   }
 
@@ -79,7 +80,7 @@ public class QuanLyDichVu {
     this.dsDv.forEach(s -> s.show());
   }
 
-  public int calcTotal() {
+  public int tongGia() {
     int sum = 0;
     for (DichVu dv : dsDv) {
       sum += dv.getGiaDV();
