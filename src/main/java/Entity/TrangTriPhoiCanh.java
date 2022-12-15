@@ -5,7 +5,7 @@ public class TrangTriPhoiCanh extends DichVu{
   private String yeuCau;
   {
     ++count;
-    maDV = String.format("SY%04d",count);
+    maDV = String.format("SoYeuCau%02d",count);
     tenDV = "Yeu cau trang tri boi canh";
   }
   public TrangTriPhoiCanh(String yeuCau, double giaDv) {

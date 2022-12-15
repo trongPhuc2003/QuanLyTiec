@@ -33,7 +33,7 @@ public class QuanLyBuoiTiec {
         tong += bt.tongTien();
       }
     }
-    System.out.println("Tong doanh thu thang " + thang + " la: " + tong);
+    System.out.println("Tổng doanh thu tháng " + thang + " là: " + tong);
   }
   public void doanhThuQuy(int quy, int nam) throws ParseException {
     int tong = 0;
@@ -45,7 +45,7 @@ public class QuanLyBuoiTiec {
         tong += bt.tongTien();
       }
     }
-    System.out.println("Tong doanh thu quy " + quy + " cua nam " + nam + " la: " + tong);
+    System.out.println("Tổng doanh thu quý " + quy + " của năm " + nam + " là: " + tong);
   }
 
   public void show() {

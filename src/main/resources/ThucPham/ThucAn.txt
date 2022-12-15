@@ -1,12 +1,12 @@
-Hu tieu go
+Hủ tiếu gõ
 5000
-1
-Banh canh
+true
+Bánh canh
 30000
-0
-Ca nuong
+false
+Lẩu cá
 50000
-0
-Bun dau
+false
+Bún đậu
 25000
-1
+true

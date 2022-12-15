@@ -1,28 +1,26 @@
 package Entity;
 
-public class ThucAn extends ThucPham{
-  private boolean anChay;
+public class ThucAn extends ThucPham {
+
+  private boolean anChay = true;
+
   public ThucAn(String tenTp, double giaTp, boolean anChay) {
     super(tenTp, giaTp);
-    this.anChay = anChay;
+    this.setAnChay(anChay);
   }
-
-  public ThucAn() {
-    super(null, 0);
-  }
-
-
 
   @Override
   public void show() {
-    System.out.printf("%s-- ",this.maTp);
+
+    System.out.printf("%s-- ", this.maTp);
     System.out.print(this.tenTp + ", ");
-    if(this.anChay == true)
+    if (this.anChay)
       System.out.print("Chay");
-    else
+    else if (!this.anChay)
       System.out.print("Mặn");
-    System.out.printf(", %.0f\n",this.giaTp);
+    System.out.printf(", %.0f\n", this.giaTp);
   }
+
   public boolean isAnChay() {
     return anChay;
   }
@@ -30,4 +28,6 @@ public class ThucAn extends ThucPham{
   public void setAnChay(boolean anChay) {
     this.anChay = anChay;
   }
+
 }
+

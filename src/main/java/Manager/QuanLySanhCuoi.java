@@ -1,6 +1,9 @@
 package Manager;
 
 import Entity.SanhCuoi;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -56,6 +59,17 @@ public class QuanLySanhCuoi {
 
   public List<SanhCuoi> traCuu(String viTriSC) {
     return this.dsSanhCuoi.stream().filter(sc -> sc.getViTriSC().contains(viTriSC)).collect(Collectors.toList());
+  }
+  public void docFileSanh() throws FileNotFoundException, ParseException {
+    File f = new File("D:\\Code\\QuanLyTiec\\src\\main\\resources\\SanhCuoi\\SanhCuoi.txt");
+    try (Scanner scf = new Scanner(f)) {
+      while (scf.hasNext()) {
+        String n1 = scf.nextLine();
+        String n2 = scf.nextLine();
+        int n3 = Integer.parseInt(scf.nextLine());
+        this.dsSanhCuoi.add(new SanhCuoi(n1,n2,n3));
+      }
+    }
   }
   public List<SanhCuoi> getDsSanhCuoi() {
 

@@ -49,7 +49,7 @@ public class Menu {
     this.showQuanLy();
     int n;
     do{
-      System.out.print("Nhập mã món ăn: ");
+      System.out.print("Nhập mã món ăn (0: dừng chọn món ăn): ");
       n = scanner.nextInt();
       chonThucPham(n);
     }

@@ -22,6 +22,13 @@ public class BuoiTiec {
   private QuanLyDichVu dv = new QuanLyDichVu();
   private ChonDichVu dichVu = new ChonDichVu();
   Scanner scanner = new Scanner(System.in);
+  {
+    try {
+      getQlsc().docFileSanh();
+    } catch (FileNotFoundException | ParseException ex) {
+      Logger.getLogger(QuanLyBuoiTiec.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
   public BuoiTiec() {
   }
 
@@ -44,13 +51,13 @@ public class BuoiTiec {
     this.sanhCuoi.setMaSC(ma);
     this.tenBuoiTiec = ten;
   }
-  public ThoiDiem stringToThoiDiem(String s) {
-    if(s == "Sang") {
+  public ThoiDiem stringToThoiDiem(int s) {
+    if(s == 1) {
       return ThoiDiem.Sang;
     }
-    else if (s == "Chieu") {
+    else if (s == 2) {
       return ThoiDiem.Chieu;
-    } else if (s == "Toi") {
+    } else if (s == 3) {
       return ThoiDiem.Toi;
     }
     return null;
@@ -62,14 +69,13 @@ public class BuoiTiec {
     System.out.print("Nhập ngày thuê: ");
     String ngayT;
     ngayT= scanner.nextLine();
-    System.out.print("Nhập thời điểm thuê: ");
-    String tg;
-    tg = scanner.nextLine();
+    System.out.print("Chọn thời điểm thuê:\n1.Sáng\n2.Chiều\n3.Tối\nChọn: ");
+    int tg = scanner.nextInt();
     this.sanhCuoi = new SanhCuoi(ma, tenSanh(ma), viTriSanh(ma), sucChuaSanh(ma), ngayT, stringToThoiDiem(tg));
     this.sanhCuoi.setTanSuat(this.sanhCuoi.getTanSuat() + 1);
   }
   public void showThDiem(){
-    System.out.println("Thời điểm: "+ this.thoiDiem);
+    System.out.println("Thời điểm: "+ thoiDiem);
   }
   public void nhapBuoiTiec() throws ParseException, FileNotFoundException {
     System.out.print("Nhập tên buổi tiệc: ");
@@ -79,7 +85,7 @@ public class BuoiTiec {
     this.thueSanh();
     int chon;
     do{
-      System.out.print("Chọn dịch vụ\n1.Thuê ca sĩ\n2.Thuê phòng karaoke\n3.Yêu cầu trang trí bối cảnh\nChọn: ");
+      System.out.print("Chọn dịch vụ cho buổi tiệc:\n1.Thuê ca sĩ\n2.Thuê phòng karaoke\n3.Yêu cầu trang trí bối cảnh\nChọn (0: dừng chọn dịch vụ): ");
       chon = scanner.nextInt();
       this.chonDv(chon);
     }
@@ -89,11 +95,10 @@ public class BuoiTiec {
 
   public void show() {
     System.out.printf("Mã: %s\nTên : %s\n", this.sanhCuoi.getMaSC(), this.tenBuoiTiec);
-    System.out.println("Date: " + this.sanhCuoi.getNgay());
+    System.out.println("Ngày: " + this.sanhCuoi.getNgay());
     System.out.println(this.sanhCuoi.getTanSuat());
 
   }
-
   public int tongTien() throws ParseException {
     int sum;
     sum = sanhCuoi.tienThue() + dv.tongGia() + mn.tong()*sanhCuoi.getSucChua();
@@ -105,9 +110,10 @@ public class BuoiTiec {
   }
 
   public void xuatHoaDon() throws FileNotFoundException, ParseException{
+    System.out.println("------Hoá đơn------");
     System.out.println("Tiền thuê sảnh: "+this.sanhCuoi.tienThue());
 
-    System.out.println("Tiền menu: "+this.mn.tong() * sanhCuoi.getSucChua());
+    System.out.println("Tiền tổng menu: " + this.mn.tong() * sanhCuoi.getSucChua());
 
     System.out.println("Tiền dịch vụ: "+this.dv.tongGia());
 
@@ -158,7 +164,7 @@ public class BuoiTiec {
     System.out.print("Nhập tên ca sĩ: ");
     String tempName = scanner.nextLine();
     tempName = scanner.nextLine();
-    System.out.print("Nhập số lượng: ");
+    System.out.print("Nhập số lượng bài: ");
     int song = scanner.nextInt();
     this.dv.themDv(new ThueCaSi(tempName, song, this.dv.docFileCaSi(tempName)));
   }
@@ -172,7 +178,7 @@ public class BuoiTiec {
   }
 
   public void themTrangTri() throws FileNotFoundException {
-    System.out.println("Nhap yeu cau trang tri boi canh: ");
+    System.out.println("Nhập yêu cầu trang trí bối cảnh: ");
     String yc = scanner.nextLine();
     yc = scanner.nextLine();
     this.dv.themDv(new TrangTriPhoiCanh(yc, this.dv.docFileTrangTri(yc)));
@@ -183,9 +189,8 @@ public class BuoiTiec {
     System.out.println("Tên buổi tiệc: " + this.tenBuoiTiec);
     this.sanhCuoi.show();
     this.sanhCuoi.showThue();
-    this.showThDiem();
     this.mn.showMenu();
-    System.out.println("--Dịch vụ--");
+    System.out.println("---Dịch vụ---");
     this.dv.show();
   }
   public String getTenBuoiTiec() {

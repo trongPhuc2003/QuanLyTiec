@@ -6,7 +6,7 @@ public class ThueCaSi extends DichVu {
   private static int count = 0;
   {
     ++count;
-    maDV = String.format("SC%04d",count);
+    maDV = String.format("SoCaSi%02d",count);
     tenDV = "Thuê ca sĩ";
   }
   public ThueCaSi(String thongTin, int soLuongBaiHat, double giaDv) {
@@ -18,9 +18,9 @@ public class ThueCaSi extends DichVu {
   @Override
   public void show(){
     System.out.println(this.maDV);
-    System.out.println(this.thongTin);
-    System.out.println(this.soLuongBaiHat);
-    System.out.println(this.giaDV);
+    System.out.println("Ca sĩ: " + this.thongTin);
+    System.out.println("Số bài: " + this.soLuongBaiHat);
+    System.out.println("Giá: " + this.giaDV);
   }
   public String getThongTinCaSi() {
     return thongTin;

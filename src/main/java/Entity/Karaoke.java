@@ -5,7 +5,7 @@ public class Karaoke extends DichVu{
   private static int count = 0;
   {
     ++count;
-    maDV = String.format("SY%04d",count);
+    maDV = String.format("SoKaraoke%02d",count);
     tenDV = "Thuê Karaoke";
   }
 
@@ -20,7 +20,7 @@ public class Karaoke extends DichVu{
     System.out.println(this.tenDV);
     System.out.println("Thời gian thuê:" + this.tgThue);
     System.out.println("Giá trên giờ: " + this.giaDV);
-    System.out.println("Price: " + this.tgThue * this.giaDV);
+    System.out.println("Tổng giá: " + this.tgThue * this.giaDV);
   }
   public double getTgThue() {
     return tgThue;

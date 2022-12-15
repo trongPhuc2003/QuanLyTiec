@@ -1,0 +1,6 @@
+Trong Phuc
+tang 1
+200
+Văn Phúc
+tang 2
+400

@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class SanhCuoi {
+public class SanhCuoi{
   private static int count = 0;
   private String maSC;
   private String tenSC;
@@ -15,14 +15,24 @@ public class SanhCuoi {
   private int tanSuat = 0;
   private ThoiDiem thoiDiem;
   private String ngay;
+  Scanner scanner = new Scanner(System.in);
+
   {
     maSC = String.format("S%03d",(++count));
+
   }
   public SanhCuoi(String maSC) {
 
     this.maSC = maSC;
   }
-  public SanhCuoi(String maSC,String tenSC, String viTriSC, int sucChua, String ngayThue, ThoiDiem thoiDiem) throws ParseException {
+  public SanhCuoi(String tenSC, String viTriSC, int sucChua, String ngayThue, ThoiDiem thoiDiem) throws ParseException {
+    this.tenSC = tenSC;
+    this.viTriSC = viTriSC;
+    this.sucChua = sucChua;
+    this.ngay = ngayThue;
+    this.thoiDiem = thoiDiem;
+  }
+  public SanhCuoi(String maSC, String tenSC, String viTriSC, int sucChua, String ngayThue, ThoiDiem thoiDiem) throws ParseException {
     this.tenSC = tenSC;
     this.viTriSC = viTriSC;
     this.sucChua = sucChua;
@@ -46,8 +56,13 @@ public class SanhCuoi {
   public void show() {
     System.out.printf("Mã sảnh: %s\nTên sảnh: %s\nVị trí: %s\nSức chứa: %d\n",
         this.maSC, this.tenSC, this.viTriSC, this.sucChua);
-
+    System.out.println("Thời điểm thuê: " + this.thoiDiem);
   }
+//  @Override
+//  public String toString() {
+//    return String.format("Mã sảnh: %s\nTên sảnh: %s\nVị trí: %s\nSức chứa: %d\n",
+//        this.maSC, this.tenSC, this.viTriSC, this.sucChua);
+//  }
   public void showThue(){
     System.out.println("Ngày: "+ ngay);
   }
