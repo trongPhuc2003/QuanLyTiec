@@ -56,6 +56,9 @@ public class SanhCuoi{
   public void show() {
     System.out.printf("Mã sảnh: %s\nTên sảnh: %s\nVị trí: %s\nSức chứa: %d\n",
         this.maSC, this.tenSC, this.viTriSC, this.sucChua);
+
+  }
+  public void show2() {
     System.out.println("Thời điểm thuê: " + this.thoiDiem);
   }
 //  @Override

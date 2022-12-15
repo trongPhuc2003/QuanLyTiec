@@ -1,6 +1,6 @@
-Trong Phuc
+Chào đón TSV
 tang 1
-200
-Văn Phúc
+2000
+Chúc mừng năm mới
 tang 2
 400

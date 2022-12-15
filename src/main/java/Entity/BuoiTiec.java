@@ -188,6 +188,7 @@ public class BuoiTiec {
     System.out.println("----------Buổi Tiệc--------");
     System.out.println("Tên buổi tiệc: " + this.tenBuoiTiec);
     this.sanhCuoi.show();
+    this.sanhCuoi.show2();
     this.sanhCuoi.showThue();
     this.mn.showMenu();
     System.out.println("---Dịch vụ---");

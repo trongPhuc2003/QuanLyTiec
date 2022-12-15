@@ -22,12 +22,12 @@ public class Main {
     int luaChon = 0;
     do
     {
-      System.out.println("1: Thuê sảnh cưới");
-      System.out.println("2: Sắp xếp danh sách sảnh cưới giảm dần theo tần suất");
-      System.out.println("3: Xuất hoá đơn");
-      System.out.println("4: Doanh thu theo tháng và quý");
-      System.out.println("5: Thông tin sảnh cưới");
-      System.out.println("5: Kết thúc");
+      System.out.println("1: Thông tin sảnh cưới");
+      System.out.println("2: Thuê sảnh cưới");
+      System.out.println("3: Sắp xếp danh sách sảnh cưới giảm dần theo tần suất");
+      System.out.println("4: Xuất hoá đơn");
+      System.out.println("5: Doanh thu theo tháng và quý");
+      System.out.println("6: Kết thúc");
       luaChon = scanner.nextInt();
       switch (luaChon) {
         case 1:
@@ -80,33 +80,36 @@ public class Main {
 //              break;
 //            }
 //          }
+          ql.docFileSanh();
+          ql.show();
+          break;
+        case 2:
           b.nhapBuoiTiec();
           qlbt.themBuoiTiec(b);
           qlbt.showTatCa();
           break;
-        case 2:
-          ql.sapXep();
-          break;
         case 3:
-          b.xuatHoaDon();
+          ql.sapXep();
+          ql.show();
           break;
         case 4:
+          b.xuatHoaDon();
+          break;
+        case 5:
           System.out.print("Nhập tháng: ");
           int thang = scanner.nextInt();
           qlbt.doanhThuThang(thang);
-          System.out.println("Nhập quý: ");
+          System.out.print("Nhập quý: ");
           int quy = scanner.nextInt();
-          System.out.println("Nhập năm: ");
+          System.out.print("Nhập năm: ");
           int nam = scanner.nextInt();
           qlbt.doanhThuQuy(quy, nam);
-          break;
-        case 5:
           break;
         case 6:
           System.out.println("Kết thúc chương trình!\n");
           break;
       }
-    }while (luaChon != 7);
+    }while (luaChon != 6);
   }
 
 }
