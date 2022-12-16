@@ -112,11 +112,8 @@ public class BuoiTiec {
   public void xuatHoaDon() throws FileNotFoundException, ParseException{
     System.out.println("------Hoá đơn------");
     System.out.println("Tiền thuê sảnh: "+this.sanhCuoi.tienThue());
-
     System.out.println("Tiền tổng menu: " + this.mn.tong() * sanhCuoi.getSucChua());
-
     System.out.println("Tiền dịch vụ: "+this.dv.tongGia());
-
     System.out.println("Tổng tiền: "+this.tongTien());
 
   }
